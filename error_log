@@ -1,0 +1,53 @@
+[04-Jun-2018 01:14:23 America/Chicago] PHP Parse error:  syntax error, unexpected ''class'' (T_CONSTANT_ENCAPSED_STRING) in /home/metastag/public_html/codeigniter/application/views/admin/product/add.php on line 32
+[04-Jun-2018 01:14:23 America/Chicago] PHP Parse error:  syntax error, unexpected ''class'' (T_CONSTANT_ENCAPSED_STRING) in /home/metastag/public_html/codeigniter/application/views/admin/product/add.php on line 32
+[04-Jun-2018 01:14:24 America/Chicago] PHP Parse error:  syntax error, unexpected ''class'' (T_CONSTANT_ENCAPSED_STRING) in /home/metastag/public_html/codeigniter/application/views/admin/product/add.php on line 32
+[04-Jun-2018 01:14:25 America/Chicago] PHP Parse error:  syntax error, unexpected ''class'' (T_CONSTANT_ENCAPSED_STRING) in /home/metastag/public_html/codeigniter/application/views/admin/product/add.php on line 32
+[04-Jun-2018 01:14:38 America/Chicago] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /home/metastag/public_html/codeigniter/application/views/admin/product/add.php on line 32
+[04-Jun-2018 01:14:40 America/Chicago] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /home/metastag/public_html/codeigniter/application/views/admin/product/add.php on line 32
+[04-Jun-2018 01:16:24 America/Chicago] PHP Parse error:  syntax error, unexpected '$data' (T_VARIABLE), expecting ',' or ';' in /home/metastag/public_html/codeigniter/application/views/admin/product/add.php on line 33
+[04-Jun-2018 01:16:26 America/Chicago] PHP Parse error:  syntax error, unexpected '$data' (T_VARIABLE), expecting ',' or ';' in /home/metastag/public_html/codeigniter/application/views/admin/product/add.php on line 33
+[04-Jun-2018 02:05:16 America/Chicago] PHP Parse error:  syntax error, unexpected '<' in /home/metastag/public_html/codeigniter/application/views/admin/login.php on line 16
+[04-Jun-2018 02:05:45 America/Chicago] PHP Parse error:  syntax error, unexpected '<' in /home/metastag/public_html/codeigniter/application/views/admin/login.php on line 22
+[04-Jun-2018 02:12:37 America/Chicago] PHP Fatal error:  Call to undefined function form_email() in /home/metastag/public_html/codeigniter/application/views/admin/login.php on line 23
+[04-Jun-2018 04:27:59 America/Chicago] PHP Parse error:  syntax error, unexpected '(', expecting variable (T_VARIABLE) or '$' in /home/metastag/public_html/codeigniter/application/controllers/admin/Product.php on line 207
+[04-Jun-2018 04:53:41 America/Chicago] PHP Parse error:  syntax error, unexpected 'this' (T_STRING), expecting variable (T_VARIABLE) or '$' in /home/metastag/public_html/codeigniter/application/controllers/admin/Product.php on line 218
+[04-Jun-2018 05:00:34 America/Chicago] PHP Parse error:  syntax error, unexpected end of file in /home/metastag/public_html/codeigniter/application/views/admin/product/list.php on line 96
+[04-Jun-2018 05:00:37 America/Chicago] PHP Parse error:  syntax error, unexpected end of file in /home/metastag/public_html/codeigniter/application/views/admin/product/list.php on line 96
+[04-Jun-2018 05:00:50 America/Chicago] PHP Parse error:  syntax error, unexpected end of file in /home/metastag/public_html/codeigniter/application/views/admin/product/list.php on line 96
+[04-Jun-2018 05:00:52 America/Chicago] PHP Parse error:  syntax error, unexpected end of file in /home/metastag/public_html/codeigniter/application/views/admin/product/list.php on line 96
+[04-Jun-2018 05:34:03 America/Chicago] PHP Parse error:  syntax error, unexpected '(', expecting variable (T_VARIABLE) or '$' in /home/metastag/public_html/codeigniter/application/views/admin/product/list.php on line 104
+[04-Jun-2018 05:34:04 America/Chicago] PHP Parse error:  syntax error, unexpected '(', expecting variable (T_VARIABLE) or '$' in /home/metastag/public_html/codeigniter/application/views/admin/product/list.php on line 104
+[05-Jun-2018 06:38:59 America/Chicago] PHP Parse error:  syntax error, unexpected '<' in /home/metastag/public_html/codeigniter/application/views/admin/product/update.php on line 66
+[05-Jun-2018 07:28:41 America/Chicago] PHP Fatal error:  Call to undefined method Product_model::gallery_photo_delete() in /home/metastag/public_html/codeigniter/application/controllers/admin/Product.php on line 457
+[05-Jun-2018 07:29:43 America/Chicago] PHP Fatal error:  Call to undefined method Product_model::gallery_photo_delete() in /home/metastag/public_html/codeigniter/application/controllers/admin/Product.php on line 457
+[05-Jun-2018 07:31:14 America/Chicago] PHP Fatal error:  Call to undefined method Product_model::gallery_photo_delete() in /home/metastag/public_html/codeigniter/application/controllers/admin/Product.php on line 457
+[05-Jun-2018 09:00:20 America/Chicago] PHP Parse error:  syntax error, unexpected end of file in /home/metastag/public_html/codeigniter/application/controllers/admin/Product.php on line 400
+[06-Jun-2018 13:18:54 Asia/Kolkata] PHP Fatal error:  Call to undefined function orm_dropdown() in /home/metastag/public_html/codeigniter/application/views/admin/users/add.php on line 90
+[06-Jun-2018 04:06:14 America/Chicago] PHP Parse error:  syntax error, unexpected ';' in /home/metastag/public_html/codeigniter/application/controllers/admin/Users.php on line 84
+[06-Jun-2018 04:08:33 America/Chicago] PHP Fatal error:  Call to a member function get_product_count() on a non-object in /home/metastag/public_html/codeigniter/application/controllers/admin/Users.php on line 25
+[06-Jun-2018 04:58:21 America/Chicago] PHP Parse error:  syntax error, unexpected ':' in /home/metastag/public_html/codeigniter/application/models/admin/Users_model.php on line 19
+[06-Jun-2018 05:01:59 America/Chicago] PHP Fatal error:  Call to a member function insert_user() on a non-object in /home/metastag/public_html/codeigniter/application/controllers/admin/Users.php on line 111
+[06-Jun-2018 05:36:48 America/Chicago] PHP Fatal error:  Call to a member function get_product_count() on a non-object in /home/metastag/public_html/codeigniter/application/controllers/admin/Users.php on line 25
+[06-Jun-2018 05:36:50 America/Chicago] PHP Fatal error:  Call to a member function get_product_count() on a non-object in /home/metastag/public_html/codeigniter/application/controllers/admin/Users.php on line 25
+[06-Jun-2018 18:33:20 Asia/Kolkata] PHP Fatal error:  Cannot access empty property in /home/metastag/public_html/codeigniter/application/views/admin/users/list.php on line 52
+[06-Jun-2018 18:33:23 Asia/Kolkata] PHP Fatal error:  Cannot access empty property in /home/metastag/public_html/codeigniter/application/views/admin/users/list.php on line 52
+[12-Jun-2018 01:06:17 America/Chicago] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /home/metastag/public_html/codeigniter/application/views/admin/blog/add.php on line 55
+[12-Jun-2018 01:06:36 America/Chicago] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /home/metastag/public_html/codeigniter/application/views/admin/blog/add.php on line 55
+[12-Jun-2018 01:14:31 America/Chicago] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /home/metastag/public_html/codeigniter/application/views/admin/blog/add.php on line 55
+[12-Jun-2018 01:14:32 America/Chicago] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /home/metastag/public_html/codeigniter/application/views/admin/blog/add.php on line 55
+[12-Jun-2018 02:18:02 America/Chicago] PHP Parse error:  syntax error, unexpected '*' in /home/metastag/public_html/codeigniter/application/controllers/admin/Blog.php on line 75
+[12-Jun-2018 02:18:05 America/Chicago] PHP Parse error:  syntax error, unexpected '*' in /home/metastag/public_html/codeigniter/application/controllers/admin/Blog.php on line 75
+[12-Jun-2018 02:19:19 America/Chicago] PHP Fatal error:  Call to undefined method Blog_model::insert_product() in /home/metastag/public_html/codeigniter/application/controllers/admin/Blog.php on line 69
+[12-Jun-2018 02:29:52 America/Chicago] PHP Fatal error:  Call to undefined method Blog_model::get_blog_count() in /home/metastag/public_html/codeigniter/application/controllers/admin/Blog.php on line 28
+[12-Jun-2018 02:29:54 America/Chicago] PHP Fatal error:  Call to undefined method Blog_model::get_blog_count() in /home/metastag/public_html/codeigniter/application/controllers/admin/Blog.php on line 28
+[12-Jun-2018 04:57:12 America/Chicago] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home/metastag/public_html/codeigniter/application/controllers/admin/Blog.php on line 115
+[12-Jun-2018 04:57:31 America/Chicago] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home/metastag/public_html/codeigniter/application/controllers/admin/Blog.php on line 115
+[12-Jun-2018 04:57:40 America/Chicago] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home/metastag/public_html/codeigniter/application/controllers/admin/Blog.php on line 115
+[12-Jun-2018 05:02:26 America/Chicago] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/metastag/public_html/codeigniter/application/views/admin/blog/list.php on line 56
+[12-Jun-2018 15:42:42 Asia/Kolkata] PHP Fatal error:  Call to a member function get_userdata_by_id() on a non-object in /home/metastag/public_html/codeigniter/application/views/admin/blog/list.php on line 51
+[12-Jun-2018 15:42:44 Asia/Kolkata] PHP Fatal error:  Call to a member function get_userdata_by_id() on a non-object in /home/metastag/public_html/codeigniter/application/views/admin/blog/list.php on line 51
+[12-Jun-2018 07:00:48 America/Chicago] PHP Fatal error:  Call to a member function get_product_by_id() on a non-object in /home/metastag/public_html/codeigniter/application/controllers/admin/Blog.php on line 299
+[12-Jun-2018 07:38:50 America/Chicago] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /home/metastag/public_html/codeigniter/application/views/admin/blog/update.php on line 69
+[12-Jun-2018 18:12:10 Asia/Kolkata] PHP Fatal error:  Cannot use object of type stdClass as array in /home/metastag/public_html/codeigniter/application/views/admin/blog/update.php on line 77
+[12-Jun-2018 07:44:22 America/Chicago] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /home/metastag/public_html/codeigniter/application/views/admin/blog/update.php on line 77
+[12-Jun-2018 08:14:04 America/Chicago] PHP Fatal error:  Call to undefined method Blog_model::delete_blogs() in /home/metastag/public_html/codeigniter/application/controllers/admin/Blog.php on line 269

@@ -1,0 +1,30 @@
+/* CSS Document */
+/**********************************************************************************************/
+
+/* ------------------------------------------------------------------
+General Styles
+font-family: 'Montserrat', sans-serif;
+------------------------------------------------------------------ */
+.form-control-error{color:red; font-size: 12px; margin: 0px; padding: 0px; display: inline-block;}
+.form-control-error p {margin-bottom:0px;}
+.form-control-error a{margin-left: 5px; font-size: 18px; opacity: 1;}
+.star_label{color: red;}
+.alert-success-mas{padding: 0.40rem 1rem;background-color: green;color: #fff;display: inline-block;}
+.alert-success-mas span{display: inline-block; vertical-align: middle;}
+.alert-success-mas a{display: inline-block; vertical-align: middle; opacity: 1;}
+.alert-unsuccess-mas{padding: 0.40rem 1rem;background-color: red;color: #fff;display: inline-block;}
+.alert-unsuccess-mas span{display: inline-block; vertical-align: middle;}
+.alert-unsuccess-mas a{display: inline-block; vertical-align: middle; opacity: 1;}
+.alert-login-errormsg{padding: 0.40rem 1rem;background-color: red;color: #fff;}
+.last-login{left: -15px;}
+.update_product_logo label{display: block; width: 100%;}
+.update_product_logo input{width: 50%;}
+.update_product_logo img{margin: 0 auto; height: 40px;}
+.product-list {margin-top: 1rem;}
+@media (min-width: 992px) {
+#mainNav .navbar-collapse .navbar-sidenav > .nav-item .sidenav-second-level > li > a{padding:0.5em 2.75em;}
+}
+.input_fields_wrap .add_field_button{color: #fff !important; width: 20%;}
+.pro_del_img {width: 20%;}
+.gallery-img {height: 200px; display: block;width: 100%; overflow: hidden;}
+.gallery-img img {height: 100%; max-height: 100%; max-width: 100%; object-fit: cover; position: relative;}
