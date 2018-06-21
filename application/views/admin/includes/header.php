@@ -9,7 +9,7 @@
         if(isset($page_title)){ ?>
     <title> <?php echo $page_title; ?> </title>
         <?php } else { ?>
-    <title> Codeigniter </title>
+    <title> Web Shopee </title>
         <?php } ?>
     <meta name="description" content="">
     <meta name="author" content="">
@@ -32,7 +32,7 @@
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="<?php echo base_url(); ?>admin/">Codeigniter</a>
+    <a class="navbar-brand" href="<?php echo base_url(); ?>admin/">Web Shopee</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -47,6 +47,28 @@
           </a>
         </li>
       
+           
+      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Blog">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseBlogPages" data-parent="#exampleAccordion">
+           <i class="fa fa-rss" aria-hidden="true"></i>
+            <span class="nav-link-text">Blog</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseBlogPages">
+            <li>
+              <a href="<?php echo base_url(); ?>admin/blog/">All Blogs</a>
+            </li>
+             <li>
+              <a href="<?php echo base_url(); ?>admin/blog/add">Add Blog</a>
+            </li>  
+            <li>
+              <a href="<?php echo base_url(); ?>admin/category/">All Categories</a>
+            </li>  
+            <li>
+              <a href="<?php echo base_url(); ?>admin/category/add">Add Category</a>
+            </li>    
+          </ul>
+        </li>
+            
       <?php if($this->session->userdata('user_role') == 'superadmin'){ ?>      
       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Products">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
@@ -82,23 +104,35 @@
             </li>
           </ul>
         </li>
-      <?php } ?>     
-           
-      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Blog">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseBlogPages" data-parent="#exampleAccordion">
-           <i class="fa fa-rss" aria-hidden="true"></i>
-            <span class="nav-link-text">Blog</span>
+          
+      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Comment">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseCommentPages" data-parent="#exampleAccordion">
+            <i class="fa fa-comment" aria-hidden="true"></i>
+            <span class="nav-link-text">Comments</span>
           </a>
-          <ul class="sidenav-second-level collapse" id="collapseBlogPages">
+          <ul class="sidenav-second-level collapse" id="collapseCommentPages">
             <li>
-              <a href="<?php echo base_url(); ?>admin/blog/">All Blog</a>
+              <a href="<?php echo base_url(); ?>admin/Comment/">All Comments</a>
             </li>
-             <li>
-              <a href="<?php echo base_url(); ?>admin/blog/add">Add Blog</a>
-            </li>  
+           
           </ul>
-        </li>
-             
+        </li>      
+      <?php } 
+            if($this->session->userdata('user_role') == 'basic'){
+          ?>    
+      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Profile">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseProfilepage" data-parent="#exampleAccordion">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <span class="nav-link-text">Profile</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseProfilepage">
+            <li>
+              <a href="<?php echo base_url(); ?>admin/myprofile/">My Profile</a>
+            </li>
+           
+          </ul>
+        </li>          
+       <?php } ?>      
         </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">

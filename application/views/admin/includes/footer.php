@@ -1,7 +1,7 @@
  <footer class="sticky-footer">
       <div class="container">
         <div class="text-center">
-          <small>Copyright © Codeigniter 2018</small>
+          <small>Copyright © Web Shopee <?php echo date('Y');?></small>
         </div>
       </div>
     </footer>

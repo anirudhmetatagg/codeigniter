@@ -26,6 +26,16 @@
                 <div class="alert form-control-error"><?php echo form_error('product_name');?></div>
             </div>
           </div>
+          
+          <div class="form-group">
+            <div class="form-row">
+               <?php echo form_label('Product Price <span class="star_label">*</span>');
+                     $data = array('name' => 'product_price','id'=> 'product_price','class'=> 'form-control','placeholder' => 'Enter product price');
+                      echo form_input($data); ?>
+                <div class="alert form-control-error"><?php echo form_error('product_price');?></div>
+            </div>
+          </div>
+          
           <div class="form-group">
             <div class="form-row">  
                 <label for="exampleInputEmail1">Product Logo <span class="star_label">*</span></label>

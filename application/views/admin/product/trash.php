@@ -37,6 +37,7 @@
                 <tr>
                   <th>Product Name</th>
                   <th>Product Logo</th>
+                  <th>Product Price</th>       
                   <th>Product Description</th>
                   <th>Restore</th>    
                   <th>Delete</th>    
@@ -51,6 +52,7 @@
                         <input type="hidden" value="<?php echo $product->product_id;?>" class="curproductid">    
                         <td><?php echo $product->product_name; ?></td>
                         <td><img src="<?php echo base_url().'assets/upload/'.$product->product_logo;?>" width="50" style="height='40px'" /></td>
+                        <td><?php echo '$'.$product->product_price; ?></td>  
                         <td><?php echo character_limiter($product->product_description,20); ?></td>
                         <td><a href="<?php echo base_url().'admin/product/restore/'.$product->product_id;?>"><i class="fa fa-repeat btn btn-primary btn-block" aria-hidden="true"></i></a></td>    
                         <!--<td><a onclick="return confirm('Are you sure you want to delete this item?');" class="btn btn-primary btn-block" href="<?php //echo base_url().'admin/product/delete/'.$product->product_id;?>"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>-->  
@@ -59,7 +61,7 @@
                   <?php } } 
                   else { ?>
                       <tr>
-                          <td colspan="5"> No Product Found !</td>
+                          <td colspan="6"> No Product Found !</td>
                       </tr>
                     <?php } ?>    
               </tbody>

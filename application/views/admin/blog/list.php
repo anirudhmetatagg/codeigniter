@@ -40,7 +40,7 @@
                   <th>Author Name</th>
                   <th>Date</th>    
                   <th>Edit</th>    
-                  <th>Trash</th>    
+                  <th>Delete</th>    
                 </tr>
               </thead>
               
@@ -49,11 +49,18 @@
                   if (!empty($blogs)){
                   foreach($blogs as $blog){ 
                   $user_data = $this->comman_model->get_userdata_by_id($blog->author_id);
+                  $category_data = $this->comman_model->get_categorydata_by_id($blog->blog_category_id); 
+                  //echo '<pre>'; print_r($category_data);
+                  //exit;
                   ?>
                       <tr>
                         <input type="hidden" value="<?php echo $blog->blog_id;?>" class="curblogid">  
                         <td><?php echo $blog->blog_title; ?></td>
-                        <td>--</td>
+                        <?php if(!empty($category_data)){ ?>  
+                        <td><?php echo $category_data['0']->category_name; ?></td>
+                        <?php } else { ?>
+                          <td></td>  
+                        <?php } ?>  
                         <td><?php echo $user_data['0']->first_name; ?></td>
                         <td>Published<br><?php echo date("d/m/Y", strtotime($blog->publish_date)); ?></td>  
                         <td><a href="<?php echo base_url().'admin/blog/update/'.$blog->blog_id;?>"><i class="fa fa-pencil btn btn-primary btn-block" aria-hidden="true"></i></a></td>    
@@ -62,7 +69,7 @@
                   <?php } } 
                   else { ?>
                       <tr>
-                          <td colspan="6"> No Product Found !</td>
+                          <td colspan="6"> No Blog Found !</td>
                       </tr>
                     <?php } ?>    
               </tbody>

@@ -83,6 +83,21 @@
                
           </div>
           
+          <div class="form-group">
+            <div class="row">                 
+                <div class="col-md-12"><label for="exampleInputEmail1">Profile Picture</label></div>
+                <div class="col-md">
+                <input class="form-control" id="profile_pic" name="profile_pic" type="file">
+                </div>    
+                <input type="hidden" name="hidden_profile_pic" value="<?php echo $user[0]->profile_pic;?>" />
+                <?php if($user[0]->profile_pic != '') { ?>
+                    <div class="col-md">
+                    <img src="<?php echo base_url().'assets/upload/profile/'.$user[0]->profile_pic;?>" width="50" style="height:40px;" /> 
+                    </div>
+                <?php } ?>
+            </div> 
+          </div>
+          
           <div class="text-center">
               <?php  echo form_submit('submit', 'Update User', 'class="btn-success btn"'); ?>
           </div>        

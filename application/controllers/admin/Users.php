@@ -142,7 +142,37 @@ class Users extends CI_Controller {
                 $this->form_validation->set_rules('user_lname', 'Last name', ['required', 'trim', 'max_length[20]', 'strtolower', 'ucfirst'], ['required'=>"The Last Name field is required."]);
                 $this->form_validation->set_rules('user_email', 'E-mail', ['required', 'trim', 'valid_email']);
                 $this->form_validation->set_rules('user_role', 'Role', ['required'], ['required'=>"The User Role field is required."]); 
-                $this->form_validation->set_error_delimiters('<a class="close" data-dismiss="alert">×</a>');        
+                $this->form_validation->set_error_delimiters('<a class="close" data-dismiss="alert">×</a>');       
+            
+            
+            
+                /* For profile picture */
+                $file_name_logo = rand(100,10000).$_FILES['profile_pic']['name'];
+                $upload_path="./assets/upload/profile"; 
+                $config = array();
+                $config['upload_path'] = $upload_path; 
+                $config['allowed_types'] = 'gif|jpg|jpeg|png';
+                $config['encrypt_name'] = 'TRUE';
+                $config['file_name'] = $file_name_logo;
+
+                $this->load->library('upload', $config);
+                $this->upload->initialize($config);
+                $this->upload->do_upload("profile_pic");
+
+
+
+                if($_FILES['profile_pic']['name']!=''){
+                    $profile_logo = $file_name_logo;
+                }
+                else
+                {
+                    $profile_logo =  $this->input->post('hidden_profile_pic');
+                }
+                /* End Profile picture */
+            
+              if($_FILES['profile_pic']['name']!=''){
+            	 @unlink('./assets/upload/profile/'.$this->input->post('hidden_profile_pic'));
+				}
             
             if($this->form_validation->run() !== FALSE){
                $data_to_store = array(
@@ -152,6 +182,7 @@ class Users extends CI_Controller {
                     'admin_email' => set_value('user_email'),
                     'phone_num' => set_value('phone_num'),
                     'role' => set_value('user_role'),  
+                     'profile_pic' => $profile_logo,  
                 );
 				
 							

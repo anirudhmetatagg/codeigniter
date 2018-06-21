@@ -30,9 +30,20 @@
                 $data = array('name' => 'product_name','id'=> 'product_name','class'=> 'form-control','placeholder' => 'Enter product name','value' => "$product_name");
                  echo form_input($data);
                 ?>
-                
+               <div class="alert form-control-error"><?php echo form_error('product_name');?></div> 
             </div>
           </div>
+          
+          <div class="form-group">
+            <div class="form-row">
+                <?php echo form_label('Product Price'); 
+                $product_price = $product[0]->product_price;
+                $pricedata = array('name' => 'product_price','id'=> 'product_price','class'=> 'form-control','placeholder' => 'Enter product price','value' => "$product_price");
+                 echo form_input($pricedata);
+                ?>
+            </div>
+          </div>
+          
           <div class="form-group">
             <div class="row">                 
                 <div class="col-md-12"><label for="exampleInputEmail1">Product Logo</label></div>

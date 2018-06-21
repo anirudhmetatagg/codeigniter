@@ -81,7 +81,8 @@ class Product extends CI_Controller {
         if ($this->input->server('REQUEST_METHOD') === 'POST')
         {
             
-            $this->form_validation->set_rules('product_name', 'Product Name', 'required');
+            $this->form_validation->set_rules('product_name', 'Product Name', ['required', 'trim','max_length[80]','is_unique[product.product_name]'],['required'=>"The Product Name field is required.", 'is_unique'=>'Product name allready exists.']);
+            $this->form_validation->set_rules('product_price', 'Product Price', 'required');
             if(empty($_FILES['product_logo']['name']))
             {$this->form_validation->set_rules('product_logo', 'Product Logo', 'required');}
                 $this->form_validation->set_error_delimiters('<a class="close" data-dismiss="alert">×</a>');
@@ -125,9 +126,12 @@ class Product extends CI_Controller {
                     }
                 }
                 
+                $slug = url_title($this->input->post('product_name'), 'dash', true);
                 
                 $product_to_store = array(
                     'product_name' => $this->input->post('product_name'),
+                    'product_slug' => $slug,
+                    'product_price' => $this->input->post('product_price'),  
                     'product_logo' => $product_logo_filename,
                     'product_gallery' => $gallery_names,
 					'product_description' => $this->input->post('product_description'),
@@ -170,11 +174,17 @@ class Product extends CI_Controller {
         
 		$last = $this->uri->total_segments();
 		$id = $this->uri->segment($last);	  
-       
+        
         
         if ($this->input->server('REQUEST_METHOD') === 'POST')
         {
             
+            $this->form_validation->set_rules('product_name', 'Product Name', ['required', 'trim', 
+            'callback_crosscheckName['.$id.']'], ['required'=>'required']);
+             $this->form_validation->set_error_delimiters('<a class="close" data-dismiss="alert">×</a>');
+            
+            if ($this->form_validation->run())
+            {
             /* For product logo */
             $file_name_logo = rand(100,10000).$_FILES['product_logo']['name'];
             $upload_path="./assets/upload/"; 
@@ -240,10 +250,11 @@ class Product extends CI_Controller {
             
             $this->db->where('product_id',$id);
             $this->db->update('product',$data);
-           
-                $data_to_store = array(
-                    
+            $slug = url_title($this->input->post('product_name'), 'dash', true);
+                $data_to_store = array(                    
                     'product_name' => $this->input->post('product_name'),
+                    'product_slug' => $slug,
+                    'product_price' => $this->input->post('product_price'), 
                     'product_logo' => $product_logo,
                     //'product_gallery' => $gallery_names,
 					'product_description' => $this->input->post('product_description'),
@@ -260,7 +271,7 @@ class Product extends CI_Controller {
                 }
                 redirect('admin/product/update/'.$id.'');
 
-
+            }
         }
         
         
@@ -507,6 +518,22 @@ class Product extends CI_Controller {
             }
         }
         $this->output->set_content_type('application/json')->set_output(json_encode($json));
+    }
+    
+    
+    public function crosscheckName($productName, $productId){
+       
+        $productWithName = $this->product_model->getProductTableCol($productName, 'product_id', $productId);
+        
+        if(!$productWithName || ($productWithName == $productId)){
+            return TRUE;
+        }
+        
+        else{
+            $this->form_validation->set_message('crosscheckName', 'There is an product with this name');
+                
+            return FALSE;
+        }
     }
     
     

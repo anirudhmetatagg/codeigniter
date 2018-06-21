@@ -50,6 +50,14 @@ $admin_name = $this->session->userdata('admin_name');
               </div>
                
           </div>
+           <div class="form-group">
+            <div class="form-row">
+                <?php echo form_label('Category'); 
+                echo form_dropdown('blog_category_id', $categorylist, '','class="form-control"')
+                ?>
+            </div>
+          </div>  
+          
           <div class="form-group">
             <div class="form-row">
                 <?php echo form_label('Author'); 

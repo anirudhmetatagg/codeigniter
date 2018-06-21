@@ -132,6 +132,7 @@ class Product_model extends CI_Model {
          $this->db->from('product');
          $this->db->where('trash_product', '1');
          $this->db->where("(`product_name` LIKE '%$search%'");
+         $this->db->or_where("`product_price` LIKE '%$search%'"); 
          $this->db->or_where("`product_description` LIKE '%$search%')");
          $query = $this->db->get();
          return $query->num_rows(); 
@@ -144,6 +145,7 @@ class Product_model extends CI_Model {
          $this->db->from('product');
          $this->db->where('trash_product', '1');
          $this->db->where("(`product_name` LIKE '%$search%'");
+         $this->db->or_where("`product_price` LIKE '%$search%'");
          $this->db->or_where("`product_description` LIKE '%$search%')");
          $this->db->limit($limit, $start);
          $query = $this->db->get();
@@ -157,6 +159,7 @@ class Product_model extends CI_Model {
          $this->db->from('product');
          $this->db->where('trash_product', '0');
          $this->db->where("(`product_name` LIKE '%$search%'");
+         $this->db->or_where("`product_price` LIKE '%$search%'");
          $this->db->or_where("`product_description` LIKE '%$search%')");
          $query = $this->db->get();
          return $query->num_rows(); 
@@ -169,13 +172,13 @@ class Product_model extends CI_Model {
          $this->db->from('product');
          $this->db->where('trash_product', '0');
          $this->db->where("(`product_name` LIKE '%$search%'");
+         $this->db->or_where("`product_price` LIKE '%$search%'");
          $this->db->or_where("`product_description` LIKE '%$search%')");
          $this->db->limit($limit, $start);
          $query = $this->db->get();
          return $query->result(); 
          
      } 
-    
     
     public function gallery_photo_delete($product_id,$photo_id){
         
@@ -211,6 +214,24 @@ class Product_model extends CI_Model {
 		}
 
 	}
+    
+    public function getProductTableCol($productName, $selColName, $productId){
+        
+        $q = "SELECT product_id FROM product WHERE product_name = ?";
+        
+        $run_q = $this->db->query($q, [$productName]);
+        
+        
+        if($run_q->num_rows() > 0){
+            foreach($run_q->result() as $get){
+                return $get->$selColName;
+            }
+        }
+        
+        else{
+            return FALSE;
+        }
+    }
 
 }
 

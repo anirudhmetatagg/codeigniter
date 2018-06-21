@@ -151,8 +151,7 @@ $(wrapper).append('<div class="row"><div class="col-md-6 product_gallery mt-3"> 
         }
     });
     
-    //For Delete Blog 
-    
+    //For Delete Blog     
     $(".deleteblog").on('click', function(e){
         e.preventDefault();
         
@@ -170,6 +169,71 @@ $(wrapper).append('<div class="row"><div class="col-md-6 product_gallery mt-3"> 
                     if(rd.status === 1){
                         //$(itemRow).remove();
                        $("#user_blog_msg").html('<div class="alert alert-success-mas"> <span>Blog deleted successfully.</span> <a class="close" data-dismiss="alert">×</a></div>');
+                       location.reload();
+                    }
+
+                    else{
+
+                    }
+                }).fail(function(){
+                    console.log('Req Failed');
+                });
+            }
+        }
+    });
+    
+    //For Delete Category     
+    $(".deletecategory").on('click', function(e){
+        e.preventDefault();
+        
+        var itemId = $(this).parents('tr').find('.curcategoryid').val();
+        var itemRow = $(this).closest('tr');
+        
+        if(itemId){
+            var confirm = window.confirm("Are you sure you want to delete category?");
+            
+            if(confirm){
+                $.ajax({
+                    url: baseUrl+"admin/category/delete_category",
+                    method: "POST",
+                    data: {cat_id:itemId}
+                }).done(function(rd){
+                    if(rd.status === 1){
+                        //$(itemRow).remove();
+                       $("#cat_delete_msg").html('<div class="alert alert-success-mas"> <span>Category deleted successfully.</span> <a class="close" data-dismiss="alert">×</a></div>');
+                       location.reload();
+                    }
+
+                    else{
+
+                    }
+                }).fail(function(){
+                    console.log('Req Failed');
+                });
+            }
+        }
+    });
+    
+     //For Comment approve / disapprove
+    $(".comment_status").on('click', function(e){
+        e.preventDefault();
+        
+        var itemId = $(this).parents('tr').find('.curcommentid').val();
+        var commentstatus = $(this).parents('tr').find('.commentstatus').val();
+        var itemRow = $(this).closest('tr');
+        
+        if(itemId){
+            //var confirm = window.confirm("Are you sure you want to delete category?");
+            
+            if(confirm){
+                $.ajax({
+                    url: baseUrl+"admin/comment/change_comment_status",
+                    method: "POST",
+                    data: {comment_id:itemId,comment_status:commentstatus}
+                }).done(function(rd){
+                    if(rd.status === 1){
+                        //$(itemRow).remove();
+                       $("#status_change_msg").html('<div class="alert alert-success-mas"> <span>Status Changed Successfully.</span> <a class="close" data-dismiss="alert">×</a></div>');
                        location.reload();
                     }
 

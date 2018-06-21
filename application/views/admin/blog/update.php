@@ -65,6 +65,16 @@
           
           <div class="form-group">
             <div class="form-row">
+                <?php echo form_label('Category'); 
+                $select = $blog[0]->blog_category_id;
+                echo form_dropdown('blog_category_id',  $categorylist, $select,'class="form-control"')
+                ?>
+            </div>
+          </div> 
+          
+          
+          <div class="form-group">
+            <div class="form-row">
                 <?php echo form_label('Author'); 
                 $user_data = $this->comman_model->get_userdata_by_id($blog[0]->author_id);
                 $admin_name = $user_data['0']->first_name;

@@ -53,14 +53,9 @@ $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+$route['blog'] = 'blog';
+$route['blog/(:any)'] = 'blog/single/$1';
 
-//$route['admin/product/(:any)'] = 'admin/product/index/$1'; //$1 = page number
-//$route['admin/reservetableactivity/(:any)'] = 'admin/reservetableactivity/index/$1'; //$1 = page 
-//$route['admin'] = 'admin/index';
-//$route['admin/product'] = 'admin/product/index';
-//$route['admin/product/add'] = 'admin/product/add';
-//$route['admin/product/(:any)'] = 'admin/product/index/$1'; //$1 = page number
-//$route['admin/restaurants/delete/(:any)'] = 'admin/restaurants/delete/$1';
-//$route['admin/restaurants/update'] = 'admin/restaurants/update';
-//$route['admin/restaurants/update/(:any)'] = 'admin/restaurants/update/$1';
-
+$route['product'] = 'product';
+$route['product/(:any)'] = 'product/single/$1';
+//$route['product/(:any)'] = 'product/index/$1';

@@ -1,2 +1,0 @@
-# codeigniter
-Codeigniter Admin Panel

@@ -53,7 +53,9 @@ class Blog_model extends CI_Model {
     {
          $this->db->like('blog_title', $search);
          $this->db->or_like('admin_users.first_name',$search);
+         $this->db->or_like('category.category_name',$search);
          $this->db->join('admin_users','blog.author_id = admin_users.id');
+         $this->db->join('category','blog.blog_category_id =  category.category_id');
          $query = $this->db->get('blog');
          return $query->num_rows(); 
          
@@ -63,7 +65,9 @@ class Blog_model extends CI_Model {
     {
          $this->db->like('blog_title', $search);
          $this->db->or_like('admin_users.first_name',$search);
+         $this->db->or_like('category.category_name',$search);
          $this->db->join('admin_users','blog.author_id = admin_users.id');
+         $this->db->join('category','blog.blog_category_id =  category.category_id');
          $this->db->limit($limit, $start);
          $query = $this->db->get('blog');
          return $query->result(); 
@@ -97,115 +101,23 @@ class Blog_model extends CI_Model {
 		}
     }
     
-    /*public function get_trash_product_count()
-    {
-         $this->db->select('*');
-         $this->db->from('product');
-         $this->db->where('trash_product', '0');
-         $query = $this->db->get();
-         return $query->num_rows(); 
-         
-     }
+    public function getBlogTableCol($blogName, $selColName, $blogId){
         
-    public function get_trash_product($limit, $start)
-    {
-         $this->db->select('*');
-         $this->db->from('product');
-         $this->db->where('trash_product', '0');
-         $this->db->limit($limit, $start);
-         $query = $this->db->get();
-         return $query->result();
-         
-     }
-    
-   
-    
-    public function trash_product($id){
-        $this->db->set('trash_product', '0');
-        $this->db->where('product_id', $id);
-		$this->db->update('product'); 
-		$report_update = array();
-		if($report_update !== 0){
-			return true;
-		}else{
-			return false;
-		}
-    }
-    
-    public function restore_product($id){
-
-        $this->db->set('trash_product', '1');
-        $this->db->where('product_id', $id);
-		$this->db->update('product'); 
-		$restore_update = array();
-		if($restore_update !== 0){
-			return true;
-		}else{
-			return false;
-		}
-    }
- 
-   */
-
-    /*public function get_trash_search_count($search)
-    {
-         $this->db->select('*');
-         $this->db->from('product');
-         $this->db->where('trash_product', '0');
-         $this->db->where("(`product_name` LIKE '%$search%'");
-         $this->db->or_where("`product_description` LIKE '%$search%')");
-         $query = $this->db->get();
-         return $query->num_rows(); 
-      
-     }
-    
-    public function get_trash_search($limit, $start,$search)
-    {
-         $this->db->select('*');
-         $this->db->from('product');
-         $this->db->where('trash_product', '0');
-         $this->db->where("(`product_name` LIKE '%$search%'");
-         $this->db->or_where("`product_description` LIKE '%$search%')");
-         $this->db->limit($limit, $start);
-         $query = $this->db->get();
-         return $query->result(); 
-         
-     } 
+        $q = "SELECT blog_id FROM blog WHERE blog_title = ?";
         
-    public function gallery_photo_delete($product_id,$photo_id){
+        $run_q = $this->db->query($q, [$blogName]);
         
-		$photopath = './assets/upload/photo/'; 
-        if($photopath){
-		//unlink($photopath.$photo_id);
-        @unlink($photopath . $photo_id);
+        
+        if($run_q->num_rows() > 0){
+            foreach($run_q->result() as $get){
+                return $get->$selColName;
+            }
         }
-		$query = $this->db->query("SELECT * FROM product where product_id='$product_id'");
-
-		$row = $query->row_array();
-
-		$photo_value = explode(',',$row['product_gallery']);
-		
-		$photo_output = array_diff($photo_value, array($photo_id));
-
-		$data=array('product_gallery'=>implode(',',$photo_output));
-
-		$this->db->where('product_id',$product_id);
-
-		$this->db->update('product',$data);
-
-		$query = array();
-
-			if($query != 0){
-
-			return true;
-
-		}else{
-
-			return false;
-
-		}
-
-	}*/
+        
+        else{
+            return FALSE;
+        }
+    }
 
 }
 

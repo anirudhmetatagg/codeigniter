@@ -7,7 +7,8 @@ class Blog extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('admin/blog_model');
-         $this->load->model('admin/comman_model');
+        $this->load->model('admin/category_model');
+        $this->load->model('admin/comman_model');
 		$this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
         $this->load->helper('text');
@@ -84,6 +85,9 @@ class Blog extends CI_Controller {
         {
             
             $this->form_validation->set_rules('blog_title', 'Blog Title', 'required');
+            
+            $this->form_validation->set_rules('blog_title', 'Blog Name', ['required', 'trim','max_length[80]','is_unique[blog.blog_title]'],['required'=>"The Blog Name field is required.", 'is_unique'=>'Blog name allready exists.']);
+            
             if(empty($_FILES['blog_img']['name']))
             {$this->form_validation->set_rules('blog_img', 'Blog Image', 'required');}
                 $this->form_validation->set_error_delimiters('<a class="close" data-dismiss="alert">×</a>');
@@ -106,9 +110,11 @@ class Blog extends CI_Controller {
                 /* End blog logo */
                 
                 
+                $slug = url_title($this->input->post('blog_title'), 'dash', true);
                 
                 $blog_to_store = array(
                     'blog_title' => $this->input->post('blog_title'),
+                    'blog_slug' => $slug,
                     'blog_image' => $blog_img_filename,
                     'blog_content' => $this->input->post('blog_content'),
 					'blog_category_id' => $this->input->post('blog_category_id'),
@@ -128,6 +134,7 @@ class Blog extends CI_Controller {
            
         }
         
+         $data['categorylist']  = $this->category_model->get_allcategory();
          $this->load->view('admin/blog/add', $data);  
         
 	}
@@ -209,6 +216,13 @@ class Blog extends CI_Controller {
         if ($this->input->server('REQUEST_METHOD') === 'POST')
         {
             
+            $this->form_validation->set_rules('blog_title', 'Blog Name', ['required', 'trim', 
+            'callback_crosscheckBlogName['.$id.']'], ['required'=>'required']);
+             $this->form_validation->set_error_delimiters('<a class="close" data-dismiss="alert">×</a>');
+            
+            if ($this->form_validation->run())
+            {
+            
             $file_name_logo = rand(100,10000).$_FILES['blog_img']['name'];
             $upload_path="./assets/upload/blogimage/"; 
 	        $config = array();
@@ -231,15 +245,14 @@ class Blog extends CI_Controller {
                 $blog_img =  $this->input->post('hidden_blog_img');
             }
            
-            
-            
-            
+            $slug = url_title($this->input->post('blog_title'), 'dash', true);
                 $data_to_store = array(
                     
                     'blog_title' => $this->input->post('blog_title'),
+                    'blog_slug' => $slug,                    
                     'blog_image' => $blog_img,
+                    'blog_category_id' => $this->input->post('blog_category_id'),           
                     'blog_content' => $this->input->post('blog_content'),
-                   
                 );
 				
 				if($_FILES['blog_img']['name']!=''){
@@ -251,11 +264,11 @@ class Blog extends CI_Controller {
                     $this->session->set_flashdata('unsuccess_message', 'Somthing worng. Error!!');
                 }
                 redirect('admin/blog/update/'.$id.'');
-
+            }
 
         }
        
-        
+        $data['categorylist']  = $this->category_model->get_allcategory();
         $data['blog'] = $this->blog_model->get_blog_by_id($id);
         $this->load->view('admin/blog/update', $data);
     }
@@ -274,5 +287,19 @@ class Blog extends CI_Controller {
         $this->output->set_content_type('application/json')->set_output(json_encode($json));
     }
     
+    public function crosscheckBlogName($blogName, $blogId){
+        
+        $blogWithName = $this->blog_model->getBlogTableCol($blogName, 'blog_id', $blogId);
+        
+        if(!$blogWithName || ($blogWithName == $blogId)){
+            return TRUE;
+        }
+        
+        else{
+            $this->form_validation->set_message('crosscheckBlogName', 'There is an blog with this name');
+                
+            return FALSE;
+        }
+    }
     
 }
